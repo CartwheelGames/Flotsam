@@ -8,9 +8,13 @@ namespace Project
 	{
 		//Serialized Fields
 		[SerializeField]
-		private float rotationCorrectionSpeed = 2f;
+		private float movementSpeed = 0.01f;
+		[SerializeField]
+		private float rotationCorrectionSpeed = 10f;
 		[SerializeField]
 		private Wave wave = null;
+		[SerializeField]
+		private Transform barrelEnd = null;
 		[SerializeField]
 		private string horizontalAxis = "Horizontal";
 		[SerializeField]
@@ -24,13 +28,13 @@ namespace Project
 		{
 			xPosition = transform.position.x;
 		}
-		private void Update()
+		private void LateUpdate()
 		{
+			horizontalInput = Input.GetAxis(horizontalAxis);
 			if (Input.GetButtonDown(fireButton))
 			{
 				Fire();
 			}
-			float horizontalInput = Input.GetAxis(horizontalAxis);
 			RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 4f, Layer.Water.ToMask());
 			if (hit.transform != null)
 			{
@@ -40,11 +44,7 @@ namespace Project
 		}
 		private void FixedUpdate()
 		{
-			if (Mathf.Abs(horizontalInput) > 0.1f)
-			{
-				xPosition += horizontalInput;
-				horizontalInput = 0f;
-			}
+			xPosition += horizontalInput * movementSpeed;
 			transform.position = new Vector3(xPosition, wave.GetHeightAtXPos(xPosition) + 0.1f);
 		}
 		private void Fire()

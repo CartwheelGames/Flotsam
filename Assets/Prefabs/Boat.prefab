@@ -11,6 +11,21 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1880156732283694}
   m_IsPrefabParent: 1
+--- !u!1 &1062871904544170
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4812743476745822}
+  m_Layer: 8
+  m_Name: Barrel End
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1880156732283694
 GameObject:
   m_ObjectHideFlags: 0
@@ -19,10 +34,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4365644104578326}
+  - component: {fileID: 114206029380557450}
   - component: {fileID: 212034439452160638}
   - component: {fileID: 58120973443660194}
   - component: {fileID: 50034501859995266}
-  - component: {fileID: 114206029380557450}
   m_Layer: 8
   m_Name: Boat
   m_TagString: Untagged
@@ -37,10 +52,24 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1880156732283694}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.042, y: 1.634, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4812743476745822}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4812743476745822
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1062871904544170}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.079, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 4365644104578326}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &50034501859995266
@@ -50,7 +79,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1880156732283694}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -61,7 +90,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 1
 --- !u!58 &58120973443660194
 CircleCollider2D:
@@ -88,10 +117,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ecfa251cc53d214ea8b4ec8a0301076, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
+  rotationCorrectionSpeed: 10
   wave: {fileID: 0}
-  horizontalAxis: Horizontal
-  verticalAxis: Vertical
-  fireButton: Fire
+  barrelEnd: {fileID: 4812743476745822}
+  horizontalAxis: Horizontal1
+  verticalAxis: Vertical1
+  fireButton: Fire1
 --- !u!212 &212034439452160638
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -123,7 +155,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 26e37e3cff12c384987671af680f6faa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7f6a19e16b5c92644982edb5a4ab8d9c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
