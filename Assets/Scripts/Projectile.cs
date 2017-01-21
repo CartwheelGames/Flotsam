@@ -46,13 +46,7 @@ namespace Project
 			{
 				if (col.gameObject.layer == Layer.Water.ToIndex())
 				{
-					localRigidbody.velocity *= 0.1f;
-					localRigidbody.angularVelocity *= 0.1f;
-					localRigidbody.gravityScale = 0.075f;
-					circleCollider.enabled = false;
-					particles.DisableEmission();
-					spriteRenderer.color = Color.gray;
-					hasEnteredWater = true;
+					OnEnterWater();
 				}
 				else if (col.gameObject.layer == Layer.Boat.ToIndex())
 				{
@@ -63,13 +57,31 @@ namespace Project
 						{
 							boat.OnHit();
 						}
-						circleCollider.enabled = false;
-						particles.DisableEmission();
-						spriteRenderer.enabled = false;
-						hasHit = true;
+						OnHit();
 					}
 				}
+				else if (col.gameObject.layer == Layer.Projectile.ToIndex())
+				{
+					OnHit();
+				}
 			}
+		}
+		private void OnEnterWater()
+		{
+			localRigidbody.velocity *= 0.1f;
+			localRigidbody.angularVelocity *= 0.1f;
+			localRigidbody.gravityScale = 0.075f;
+			circleCollider.enabled = false;
+			particles.DisableEmission();
+			spriteRenderer.color = Color.gray;
+			hasEnteredWater = true;
+		}
+		private void OnHit()
+		{
+			circleCollider.enabled = false;
+			particles.DisableEmission();
+			spriteRenderer.enabled = false;
+			hasHit = true;
 		}
 		private void CleanUp()
 		{
