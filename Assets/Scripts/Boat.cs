@@ -9,6 +9,8 @@ namespace Project
 	{
 		//Serialized Fields
 		[SerializeField]
+		private float fireCooldownDuration = 0.75f;
+		[SerializeField]
 		private float movementSpeed = 0.01f;
 		[SerializeField]
 		private float rotationCorrectionSpeed = 10f;
@@ -19,30 +21,32 @@ namespace Project
 		[SerializeField]
 		private Transform barrelEnd = null;
 		[SerializeField]
-		private Transform geometry = null;
-		[SerializeField]
-		private bool isFacingLeft = false;
+		private SpriteRenderer spriteRenderer = null;
 		[SerializeField]
 		private string horizontalAxis = "Horizontal";
 		[SerializeField]
-		private string verticalAxis = "Vertical";
-		[SerializeField]
 		private string fireButton = "Fire";
 		//Local Fields
+		private float fireCooldownProgress = 0f;
 		private float xPosition = 0f;
 		private float horizontalInput = 0f;
+		private bool isInFireCooldown = false;
 		private void Start()
 		{
 			xPosition = transform.position.x;
-			if (isFacingLeft)
-			{
-				geometry.localScale = new Vector3(-1f, 1f, 1f);
-			}
 		}
 		private void LateUpdate()
 		{
 			horizontalInput = Input.GetAxis(horizontalAxis);
-			if (Input.GetButtonDown(fireButton))
+			if (isInFireCooldown)
+			{
+				fireCooldownProgress += Time.deltaTime;
+				if (fireCooldownProgress >= fireCooldownDuration)
+				{
+					isInFireCooldown = false;
+				}
+			}
+			else if (Input.GetButtonDown(fireButton))
 			{
 				Fire();
 			}
@@ -61,6 +65,8 @@ namespace Project
 		private void Fire()
 		{
 			PrefabPooler.GetFreeFromPool(projectilePrefab, barrelEnd.position, barrelEnd.rotation);
+			fireCooldownProgress = 0f;
+			isInFireCooldown = true;
 		}
 	}
 }
