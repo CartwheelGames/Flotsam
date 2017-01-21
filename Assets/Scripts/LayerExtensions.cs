@@ -9,7 +9,7 @@ namespace Project
     	IgnoreRaycast = 2,
     	Water = 4,
     	UI = 4,
-    	Flotsam = 8,
+    	Boat = 8,
         Hazard = 9
     }
     internal static class LayerExensions

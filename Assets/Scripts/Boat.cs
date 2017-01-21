@@ -16,6 +16,10 @@ namespace Project
 		[SerializeField]
 		private Transform barrelEnd = null;
 		[SerializeField]
+		private Transform geometry = null;
+		[SerializeField]
+		private bool isFacingLeft = false;
+		[SerializeField]
 		private string horizontalAxis = "Horizontal";
 		[SerializeField]
 		private string verticalAxis = "Vertical";
@@ -27,6 +31,10 @@ namespace Project
 		private void Start()
 		{
 			xPosition = transform.position.x;
+			if (isFacingLeft)
+			{
+				geometry.localScale = new Vector3(-1f, 1f, 1f);
+			}
 		}
 		private void LateUpdate()
 		{

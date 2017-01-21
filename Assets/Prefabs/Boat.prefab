@@ -13,7 +13,7 @@ Prefab:
   m_IsPrefabParent: 1
 --- !u!1 &1062871904544170
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
@@ -21,6 +21,22 @@ GameObject:
   - component: {fileID: 4812743476745822}
   m_Layer: 8
   m_Name: Barrel End
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1300009812174034
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4047656179308468}
+  - component: {fileID: 212351195779024540}
+  m_Layer: 8
+  m_Name: Geometry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,7 +51,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4365644104578326}
   - component: {fileID: 114206029380557450}
-  - component: {fileID: 212034439452160638}
   - component: {fileID: 58120973443660194}
   - component: {fileID: 50034501859995266}
   m_Layer: 8
@@ -45,6 +60,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4047656179308468
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1300009812174034}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4812743476745822}
+  m_Father: {fileID: 4365644104578326}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4365644104578326
 Transform:
   m_ObjectHideFlags: 1
@@ -52,10 +81,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1880156732283694}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.042, y: 1.634, z: 0}
+  m_LocalPosition: {x: -0.227, y: 1.634, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4812743476745822}
+  - {fileID: 4047656179308468}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -65,11 +94,11 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1062871904544170}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.079, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4365644104578326}
+  m_Father: {fileID: 4047656179308468}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &50034501859995266
@@ -91,7 +120,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 1
+  m_Constraints: 0
 --- !u!58 &58120973443660194
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -121,15 +150,17 @@ MonoBehaviour:
   rotationCorrectionSpeed: 10
   wave: {fileID: 0}
   barrelEnd: {fileID: 4812743476745822}
+  geometry: {fileID: 4047656179308468}
+  isFacingLeft: 0
   horizontalAxis: Horizontal1
   verticalAxis: Vertical1
   fireButton: Fire1
---- !u!212 &212034439452160638
+--- !u!212 &212351195779024540
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1880156732283694}
+  m_GameObject: {fileID: 1300009812174034}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
