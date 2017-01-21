@@ -12,7 +12,7 @@ namespace Project
 		[SerializeField]
 		private float rotationCorrectionSpeed = 10f;
 		[SerializeField]
-		private Wave wave = null;
+		private WaveManager waveManager = null;
 		[SerializeField]
 		private Transform barrelEnd = null;
 		[SerializeField]
@@ -53,7 +53,7 @@ namespace Project
 		private void FixedUpdate()
 		{
 			xPosition += horizontalInput * movementSpeed;
-			transform.position = new Vector3(xPosition, wave.GetHeightAtXPos(xPosition) + 0.1f);
+			transform.position = new Vector3(xPosition, waveManager.GetWaterHeightAtXPos(xPosition) + 0.1f);
 		}
 		private void Fire()
 		{
