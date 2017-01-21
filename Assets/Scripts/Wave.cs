@@ -1,37 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
-
-public class Wave : MonoBehaviour {
-
-    float scrollPos;
-    Renderer rend;
-    float scrollVel;
-
-	// Use this for initialization
-	void Start () {
-        rend = GetComponent<Renderer>();
-        scrollVel = 5;
-    }
-
-    public float GetHeightAtXPos(float xPos)
-    {
-        return Mathf.Sin((((xPos + (scrollPos - 5)) / 5) * Mathf.PI) + Mathf.PI) * 2.5f;
-    }
-
-    public float GetSlopeAtXPos(float xPos)
-    {
-        return 0;
-    }
-	
-	// Update is called once per frame
-	void Update () {
-        scrollPos += Time.deltaTime * scrollVel;
-        scrollPos = scrollPos % 10;
-        transform.position = new Vector2(scrollPos, 0);
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            scrollVel = -scrollVel;
-        }
+namespace Project
+{
+	public class Wave : MonoBehaviour
+	{
+		private float scrollPos;
+		private SpriteRenderer spriteRenderer;
+		private float scrollVel = -1;
+		private void Start()
+		{
+			spriteRenderer = GetComponent<SpriteRenderer>();
+		}
+		public float GetHeightAtXPos(float xPos)
+		{
+			RaycastHit2D hit = Physics2D.Raycast(new Vector2(xPos, 75f), Vector2.down, 100f, Layer.Water.ToMask());
+			return hit.point.y;
+		}
+		public float GetSlopeAtXPos(float xPos)
+		{
+			return 0;
+		}
+		private void Update()
+		{
+			scrollPos += Time.deltaTime * scrollVel;
+			scrollPos = scrollPos % 10;
+			transform.position = new Vector2(scrollPos, 0);
+		}
 	}
 }
