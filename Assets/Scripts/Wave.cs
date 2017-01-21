@@ -4,9 +4,10 @@ namespace Project
 {
 	public class Wave : MonoBehaviour
 	{
+		[SerializeField]
+		private float scrollVel = -0.1f;
 		private float scrollPos;
 		private SpriteRenderer spriteRenderer;
-		private float scrollVel = -1;
 		private void Start()
 		{
 			spriteRenderer = GetComponent<SpriteRenderer>();
