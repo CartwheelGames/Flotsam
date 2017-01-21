@@ -80,7 +80,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1880156732283694}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.227, y: 1.634, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -94,13 +94,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1062871904544170}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.079, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
+  m_LocalPosition: {x: 0.079, y: 0.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4047656179308468}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
 --- !u!50 &50034501859995266
 Rigidbody2D:
   serializedVersion: 4
@@ -148,7 +148,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 0.01
   rotationCorrectionSpeed: 10
-  wave: {fileID: 0}
+  projectilePrefab: {fileID: 1534954401899762, guid: e722c5bf30f3a344cb45b2d5ed4f4528,
+    type: 2}
+  waveManager: {fileID: 0}
   barrelEnd: {fileID: 4812743476745822}
   geometry: {fileID: 4047656179308468}
   isFacingLeft: 0

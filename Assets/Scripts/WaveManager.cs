@@ -32,6 +32,13 @@ namespace Project
 				waves[i].transform.localPosition = new Vector3(waveWidth * i, 0f);
 			}
 		}
+		private void SetWaveHeight(float height)
+		{
+			for (int i = 0; i < waves.Length; i++)
+			{
+				waves[i].transform.localScale = new Vector3(waves[i].transform.localScale.x, height, waves[i].transform.localScale.z);
+			}
+		}
 		public float GetWaterHeightAtXPos(float xPos)
 		{
 			RaycastHit2D hit = Physics2D.Raycast(new Vector2(xPos, 75f), Vector2.down, 100f, Layer.Water.ToMask());

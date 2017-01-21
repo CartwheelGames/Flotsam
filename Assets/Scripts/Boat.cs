@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using Project.Pooler;
 namespace Project
 {
 	public class Boat : MonoBehaviour
@@ -11,6 +12,8 @@ namespace Project
 		private float movementSpeed = 0.01f;
 		[SerializeField]
 		private float rotationCorrectionSpeed = 10f;
+		[SerializeField]
+		GameObject projectilePrefab = null;
 		[SerializeField]
 		private WaveManager waveManager = null;
 		[SerializeField]
@@ -57,6 +60,7 @@ namespace Project
 		}
 		private void Fire()
 		{
+			PrefabPooler.GetFreeFromPool(projectilePrefab, barrelEnd.position, barrelEnd.rotation);
 		}
 	}
 }

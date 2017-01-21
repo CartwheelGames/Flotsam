@@ -10,7 +10,8 @@ namespace Project
 		Water = 4,
 		UI = 4,
 		Boat = 8,
-		Hazard = 9
+		Projectile = 9,
+		Environment = 10
 	}
 	internal static class LayerExensions
 	{
