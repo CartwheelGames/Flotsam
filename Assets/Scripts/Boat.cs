@@ -27,6 +27,8 @@ namespace Project
 		[SerializeField]
 		private ParticleSystem damageParticles = null;
 		[SerializeField]
+		private ParticleSystem frontParticles = null;
+		[SerializeField]
 		private CircleCollider2D localCollider = null;
 		[SerializeField]
 		private Rigidbody2D localRigidbody = null;
@@ -79,6 +81,15 @@ namespace Project
 					Quaternion surfaceRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
 					transform.rotation = Quaternion.Slerp(transform.rotation, surfaceRotation, rotationCorrectionSpeed * Time.deltaTime);
 				}
+				Collider2D frontPoint = Physics2D.OverlapCircle(frontParticles.transform.position, 0.02f, Layer.Water.ToMask());
+				if (frontPoint != null)
+				{
+					frontParticles.EnableEmission();
+				}
+				else
+				{
+					frontParticles.DisableEmission();
+				}
 			}
 		}
 		private void FixedUpdate()
@@ -122,6 +133,7 @@ namespace Project
 				localRigidbody.gravityScale = deathGravity;
 				localCollider.enabled = false;
 				damageParticles.DisableEmission();
+				frontParticles.DisableEmission();
 			}
 		}
 	}
