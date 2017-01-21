@@ -35,7 +35,7 @@ namespace Project
 		{
 			xPosition = transform.position.x;
 		}
-		private void LateUpdate()
+		private void Update()
 		{
 			horizontalInput = Input.GetAxis(horizontalAxis);
 			if (isInFireCooldown)
@@ -67,6 +67,10 @@ namespace Project
 			PrefabPooler.GetFreeFromPool(projectilePrefab, barrelEnd.position, barrelEnd.rotation);
 			fireCooldownProgress = 0f;
 			isInFireCooldown = true;
+		}
+		public void OnHit()
+		{
+
 		}
 	}
 }

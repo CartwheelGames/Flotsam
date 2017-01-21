@@ -15,6 +15,8 @@ namespace Project
 		private Rigidbody2D localRigidbody = null;
 		[SerializeField]
 		private ParticleSystem particles = null;
+		private const float armingTime = 0.1f;
+		private float timeToArm = 0f;
 		private float originalGravity;
 		private bool hasHit = false;
 		private bool hasEnteredWater = false;
@@ -25,6 +27,7 @@ namespace Project
 		private void OnEnable()
 		{
 			localRigidbody.AddForce(transform.right * power);
+			timeToArm = Time.time + armingTime;
 		}
 		private void OnDisable()
 		{
@@ -39,15 +42,33 @@ namespace Project
 		}
 		private void OnCollisionEnter2D(Collision2D col)
 		{
-			if (!hasEnteredWater && col.gameObject.layer == Layer.Water.ToIndex())
+			if (!hasEnteredWater && !hasHit)
 			{
-				localRigidbody.velocity *= 0.1f;
-				localRigidbody.angularVelocity *= 0.1f;
-				localRigidbody.gravityScale = 0.075f;
-				circleCollider.enabled = false;
-				particles.DisableEmission();
-				spriteRenderer.color = Color.gray;
-				hasEnteredWater = true;
+				if (col.gameObject.layer == Layer.Water.ToIndex())
+				{
+					localRigidbody.velocity *= 0.1f;
+					localRigidbody.angularVelocity *= 0.1f;
+					localRigidbody.gravityScale = 0.075f;
+					circleCollider.enabled = false;
+					particles.DisableEmission();
+					spriteRenderer.color = Color.gray;
+					hasEnteredWater = true;
+				}
+				else if (col.gameObject.layer == Layer.Boat.ToIndex())
+				{
+					if (Time.time > timeToArm)
+					{
+						Boat boat = col.gameObject.GetComponent<Boat>();
+						if (boat != null)
+						{
+							boat.OnHit();
+						}
+						circleCollider.enabled = false;
+						particles.DisableEmission();
+						spriteRenderer.enabled = false;
+						hasHit = true;
+					}
+				}
 			}
 		}
 		private void CleanUp()
@@ -57,9 +78,11 @@ namespace Project
 			localRigidbody.gravityScale = originalGravity;
 			circleCollider.enabled = true;
 			particles.EnableEmission();
+			spriteRenderer.enabled = true;
 			spriteRenderer.color = Color.white;
 			hasHit = false;
 			hasEnteredWater = false;
+			timeToArm = 0f;
 		}
 	}
 }
