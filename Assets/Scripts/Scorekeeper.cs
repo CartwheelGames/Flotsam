@@ -19,11 +19,11 @@ namespace Project
 		{
 			GameManager.OnMatchBeginEvent += Enable;
 			GameManager.OnMatchEndEvent += Disable;
-		}
-		private void Start()
-		{
-			playerOneBoat.OnDeathEvent += OnPlayerOneDeath;
-			playerTwoBoat.OnDeathEvent += OnPlayerTwoDeath;
+            playerOneBoat.OnDeathEvent += OnPlayerOneDeath;
+            playerTwoBoat.OnDeathEvent += OnPlayerTwoDeath;
+        }
+        private void Start()
+        {
 			Disable();
 		}
 		private void OnPlayerOneDeath()
