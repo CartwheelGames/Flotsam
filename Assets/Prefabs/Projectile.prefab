@@ -654,7 +654,7 @@ ParticleSystem:
     enabled: 1
     serializedVersion: 3
     rateOverTime:
-      scalar: 24
+      scalar: 32
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2771,7 +2771,7 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 6abeff4db3bd615448a33e2652f1b387, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0

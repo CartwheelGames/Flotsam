@@ -41,6 +41,10 @@ namespace Project
 		[SerializeField]
 		private int maxHealthPoints = 2;
 		[SerializeField]
+		private float nearDeathParticleRate = 32f;
+		[SerializeField]
+		private float respawnDelay = 3f;
+		[SerializeField]
 		private Color deathColor = Color.gray;
 		[SerializeField]
 		private float deathGravity = 0.075f;
@@ -54,21 +58,27 @@ namespace Project
 		private Sprite sailNearDeath = null;
 		//Local Fields
 		private WaveManager waveManager = null;
+		private float damagedParticleRate = 4f;
 		private int healthPoints = 2;
 		private float fireCooldownProgress = 0f;
+		private float originalXPosition = 0f;
 		private float xPosition = 0f;
 		private float horizontalInput = 0f;
 		private bool isInFireCooldown = false;
+		private float timeToRespawn = 0f;
 		private bool isDead = false;
 		private void Start()
 		{
 			xPosition = transform.position.x;
+			originalXPosition = xPosition;
 			healthPoints = maxHealthPoints;
 			if (damageParticles.isPlaying)
 			{
 				damageParticles.Stop();
 			}
+			damagedParticleRate = damageParticles.GetEmissionRate();
 			waveManager = FindObjectOfType<WaveManager>();
+			localRigidbody.gravityScale = deathGravity;
 		}
 		private void Update()
 		{
@@ -103,6 +113,10 @@ namespace Project
 					frontParticles.DisableEmission();
 				}
 			}
+			else if (Time.time > timeToRespawn)
+			{
+				Respawn();
+			}
 		}
 		private void FixedUpdate()
 		{
@@ -130,10 +144,12 @@ namespace Project
 			{
 				if (healthPoints == 1)
 				{
+					damageParticles.SetEmissionRate(nearDeathParticleRate);
 					sailFaceRenderer.sprite = sailNearDeath;
 				}
 				else
 				{
+					damageParticles.SetEmissionRate(damagedParticleRate);
 					sailFaceRenderer.sprite = sailDamaged;
 				}
 				if (!damageParticles.isPlaying)
@@ -153,11 +169,30 @@ namespace Project
 				spriteRenderer.color = deathColor;
 				barrelRenderer.color = deathColor;
 				localRigidbody.bodyType = RigidbodyType2D.Dynamic;
-				localRigidbody.gravityScale = deathGravity;
 				localCollider.enabled = false;
 				damageParticles.DisableEmission();
 				frontParticles.DisableEmission();
+				timeToRespawn = Time.time + respawnDelay;
 			}
+		}
+		private void Respawn()
+		{
+			isInFireCooldown = false;
+			isDead = false;
+			xPosition = originalXPosition;
+			healthPoints = maxHealthPoints;
+			sailFaceRenderer.sprite = sailHealthy;
+			sailRenderer.color = Color.white;
+			spriteRenderer.color = Color.white;
+			barrelRenderer.color = Color.white;
+			localRigidbody.velocity = Vector2.zero;
+			localRigidbody.angularVelocity = 0f;
+			localRigidbody.bodyType = RigidbodyType2D.Kinematic;
+			localCollider.enabled = true;
+			damageParticles.DisableEmission();
+			damageParticles.SetEmissionRate(damagedParticleRate);
+			damageParticles.Stop();
+			frontParticles.EnableEmission();
 		}
 	}
 }

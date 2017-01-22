@@ -191,7 +191,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1880156732283694}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.227, y: 1.634, z: 0}
+  m_LocalPosition: {x: -1, y: 0.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4050840834830010}
@@ -345,6 +345,8 @@ MonoBehaviour:
   horizontalAxis: Horizontal1
   fireButton: Fire1
   maxHealthPoints: 3
+  nearDeathParticleRate: 8
+  respawnDelay: 3
   deathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   deathGravity: 0.075
   sailHealthy: {fileID: 21300000, guid: 19ceebf86d7f843c0ba7bea7631bb8fe, type: 3}
@@ -403,10 +405,10 @@ ParticleSystem:
       m_PostInfinity: 2
       m_RotationOrder: 4
     minMaxState: 0
-  moveWithTransform: 1
+  moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 626608315
+  randomSeed: -1459409879
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -784,7 +786,7 @@ ParticleSystem:
     size3D: 0
     rotation3D: 0
     gravityModifier:
-      scalar: -0.05
+      scalar: -0.01
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -849,7 +851,7 @@ ParticleSystem:
     enabled: 1
     serializedVersion: 3
     rateOverTime:
-      scalar: 8
+      scalar: 4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -3007,7 +3009,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 721930712
+  randomSeed: -615481
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -5567,7 +5569,7 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 6abeff4db3bd615448a33e2652f1b387, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -5617,7 +5619,7 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 6abeff4db3bd615448a33e2652f1b387, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
