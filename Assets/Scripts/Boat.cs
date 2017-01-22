@@ -16,9 +16,9 @@ namespace Project
 		[SerializeField]
 		private float rotationCorrectionSpeed = 10f;
 		[SerializeField]
-		GameObject projectilePrefab = null;
+		private GameObject projectilePrefab = null;
 		[SerializeField]
-		GameObject splashFXPrefab = null;
+		private GameObject splashFXPrefab = null;
 		[SerializeField]
 		private Transform barrelEnd = null;
 		[SerializeField]
@@ -37,8 +37,10 @@ namespace Project
 		private ParticleSystem frontParticles = null;
 		[SerializeField]
 		private CircleCollider2D localCollider = null;
-		[SerializeField]
-		private Rigidbody2D localRigidbody = null;
+        [SerializeField]
+        private Rigidbody2D localRigidbody = null;
+        [SerializeField]
+        private LineRenderer trajectoryLine = null;
 		[SerializeField]
 		private string horizontalAxis = "Horizontal";
 		[SerializeField]

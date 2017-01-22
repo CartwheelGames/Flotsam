@@ -3704,7 +3704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fa464143e66e29468f1e988e62dc2b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollVel: -1
+  scrollVel: -0.5
   waves:
   - {fileID: 1842467888}
   - {fileID: 767738736}

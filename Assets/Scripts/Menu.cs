@@ -37,7 +37,7 @@ namespace Project
         }
         private void RefreshSoundLabel()
         {
-            soundLabel.text = AudioListener.pause ? "sound Off" : "sound On";
+            soundLabel.text = AudioListener.pause ? "sound off" : "sound on";
         }
 		private void Enable()
 		{

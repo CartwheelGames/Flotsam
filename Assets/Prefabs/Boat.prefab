@@ -376,6 +376,7 @@ MonoBehaviour:
   frontParticles: {fileID: 198156477940725164}
   localCollider: {fileID: 58120973443660194}
   localRigidbody: {fileID: 50034501859995266}
+  trajectoryLine: {fileID: 0}
   horizontalAxis: Horizontal1
   fireButton: Fire1
   maxHealthPoints: 3
@@ -397,7 +398,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1236086084705474}
   serializedVersion: 5
   lengthInSec: 5
-  simulationSpeed: 1
+  speed: 1
   looping: 1
   prewarm: 0
   playOnAwake: 1
@@ -2998,10 +2999,10 @@ ParticleSystem:
   m_GameObject: {fileID: 1398036962703744}
   serializedVersion: 5
   lengthInSec: 5
-  simulationSpeed: 1
+  speed: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   autoRandomSeed: 1
   startDelay:
     scalar: 0
@@ -5599,10 +5600,10 @@ ParticleSystem:
   m_GameObject: {fileID: 1471709393908940}
   serializedVersion: 5
   lengthInSec: 5
-  simulationSpeed: 1
+  speed: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   autoRandomSeed: 1
   startDelay:
     scalar: 0
