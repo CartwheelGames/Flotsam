@@ -152,7 +152,13 @@ namespace Project
 			if (!isDead)
 			{
 				xPosition += horizontalInput * movementSpeed;
+
+				var leftBorder = Camera.main.ViewportToWorldPoint(new Vector3(0, 0)).x;
+				var rightBorder = Camera.main.ViewportToWorldPoint(new Vector3(1, 0)).x;
+				xPosition = Mathf.Clamp(xPosition, leftBorder, rightBorder);
+
 				float targetYPosition = waveManager.GetWaterHeightAtXPos(xPosition) + 0.1f;
+
 				transform.position = new Vector3(xPosition, targetYPosition);
 			}
 		}

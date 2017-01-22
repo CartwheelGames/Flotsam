@@ -856,7 +856,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4810112675648162, guid: 2c07bb3cb28954440a1872984855236f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.0568
+      value: -0.008
       objectReference: {fileID: 0}
     - target: {fileID: 4810112675648162, guid: 2c07bb3cb28954440a1872984855236f, type: 2}
       propertyPath: m_LocalPosition.y
@@ -864,7 +864,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4812743476745822, guid: 2c07bb3cb28954440a1872984855236f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.0979
+      value: -0.049
       objectReference: {fileID: 0}
     - target: {fileID: 4812743476745822, guid: 2c07bb3cb28954440a1872984855236f, type: 2}
       propertyPath: m_LocalRotation.x
@@ -936,11 +936,6 @@ Prefab:
     - target: {fileID: 4365644104578326, guid: 2c07bb3cb28954440a1872984855236f, type: 2}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114206029380557450, guid: 2c07bb3cb28954440a1872984855236f,
-        type: 2}
-      propertyPath: invulnerableFlashRate
-      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2c07bb3cb28954440a1872984855236f, type: 2}
