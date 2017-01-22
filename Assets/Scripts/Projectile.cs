@@ -19,6 +19,8 @@ namespace Project
 		private Color underwaterColor = Color.gray;
 		[SerializeField]
 		private GameObject explosionPrefab = null;
+		[SerializeField]
+		private GameObject splashPrefab = null;
 		private const float armingTime = 0.1f;
 		private float timeToArm = 0f;
 		private float originalGravity;
@@ -77,6 +79,8 @@ namespace Project
 			particles.DisableEmission();
 			spriteRenderer.color = underwaterColor;
 			hasEnteredWater = true;
+			Vector3 splashPosition = new Vector3(transform.position.x, transform.position.y, -0.8f);
+			PrefabPooler.GetFreeFromPool(splashPrefab, splashPosition, transform.rotation);
 		}
 		private void OnHit()
 		{

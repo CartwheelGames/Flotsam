@@ -17,6 +17,8 @@ namespace Project
 		[SerializeField]
 		GameObject projectilePrefab = null;
 		[SerializeField]
+		GameObject splashFXPrefab = null;
+		[SerializeField]
 		private Transform barrelEnd = null;
 		[SerializeField]
 		private SpriteRenderer spriteRenderer = null;
@@ -28,6 +30,8 @@ namespace Project
 		private SpriteRenderer sailRenderer = null;
 		[SerializeField]
 		private ParticleSystem damageParticles = null;
+		[SerializeField]
+		private ParticleSystem deathParticles = null;
 		[SerializeField]
 		private ParticleSystem frontParticles = null;
 		[SerializeField]
@@ -44,6 +48,10 @@ namespace Project
 		private float nearDeathParticleRate = 32f;
 		[SerializeField]
 		private float respawnDelay = 3f;
+		[SerializeField]
+		private float invulnerableDuration = 2f;
+		[SerializeField]
+		private float invulnerableFlashRate = 6f;
 		[SerializeField]
 		private Color deathColor = Color.gray;
 		[SerializeField]
@@ -66,6 +74,8 @@ namespace Project
 		private float horizontalInput = 0f;
 		private bool isInFireCooldown = false;
 		private float timeToRespawn = 0f;
+		private float timeToVulnerable = 0f;
+		private bool isInvulnerable = false;
 		private bool isDead = false;
 		private void Start()
 		{
@@ -84,6 +94,25 @@ namespace Project
 		{
 			if (!isDead)
 			{
+				if (isInvulnerable)
+				{
+					if (Time.time > timeToVulnerable)
+					{
+						isInvulnerable = false;
+						ShowGeometry();
+					}
+					else
+					{
+						if (Mathf.Round(Time.time * invulnerableFlashRate) % 2 > 0)
+						{
+							ShowGeometry();
+						}
+						else
+						{
+							HideGeometry();
+						}
+					}
+				}
 				horizontalInput = Input.GetAxis(horizontalAxis);
 				if (isInFireCooldown)
 				{
@@ -135,28 +164,45 @@ namespace Project
 		}
 		public void OnHit()
 		{
-			healthPoints--;
-			if (healthPoints <= 0)
+			if (!isInvulnerable)
 			{
-				OnDeath();
-			}
-			else
-			{
-				if (healthPoints == 1)
+				healthPoints--;
+				if (healthPoints <= 0)
 				{
-					damageParticles.SetEmissionRate(nearDeathParticleRate);
-					sailFaceRenderer.sprite = sailNearDeath;
+					OnDeath();
 				}
 				else
 				{
-					damageParticles.SetEmissionRate(damagedParticleRate);
-					sailFaceRenderer.sprite = sailDamaged;
+					if (healthPoints == 1)
+					{
+						damageParticles.SetEmissionRate(nearDeathParticleRate);
+						sailFaceRenderer.sprite = sailNearDeath;
+					}
+					else
+					{
+						damageParticles.SetEmissionRate(damagedParticleRate);
+						sailFaceRenderer.sprite = sailDamaged;
+					}
+					if (!damageParticles.isPlaying)
+					{
+						damageParticles.Play();
+					}
+					damageParticles.EnableEmission();
 				}
-				if (!damageParticles.isPlaying)
-				{
-					damageParticles.Play();
-				}
-				damageParticles.EnableEmission();
+			}
+		}
+		private void HideGeometry()
+		{
+			foreach (Transform t in transform)
+			{
+				t.gameObject.SetActive(false);
+			}
+		}
+		private void ShowGeometry()
+		{
+			foreach (Transform t in transform)
+			{
+				t.gameObject.SetActive(true);
 			}
 		}
 		private void OnDeath()
@@ -170,9 +216,11 @@ namespace Project
 				barrelRenderer.color = deathColor;
 				localRigidbody.bodyType = RigidbodyType2D.Dynamic;
 				localCollider.enabled = false;
+				deathParticles.Emit(32);
 				damageParticles.DisableEmission();
 				frontParticles.DisableEmission();
 				timeToRespawn = Time.time + respawnDelay;
+				PrefabPooler.GetFreeFromPool(splashFXPrefab, transform.position, transform.rotation);
 			}
 		}
 		private void Respawn()
@@ -193,6 +241,8 @@ namespace Project
 			damageParticles.SetEmissionRate(damagedParticleRate);
 			damageParticles.Stop();
 			frontParticles.EnableEmission();
+			isInvulnerable = true;
+			timeToVulnerable = invulnerableDuration + Time.time;
 		}
 	}
 }
