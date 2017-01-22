@@ -9,6 +9,8 @@ namespace Project
 	public class Boat : MonoBehaviour
 	{
 		//Serialized Fields
+        [SerializeField]
+        private bool isRightBoat = false;
 		[SerializeField]
 		private float fireCooldownDuration = 0.75f;
 		[SerializeField]
@@ -35,12 +37,12 @@ namespace Project
 		private ParticleSystem deathParticles = null;
 		[SerializeField]
 		private ParticleSystem frontParticles = null;
+        [SerializeField]
+        private ParticleSystem rearParticles = null;
 		[SerializeField]
 		private CircleCollider2D localCollider = null;
         [SerializeField]
         private Rigidbody2D localRigidbody = null;
-        [SerializeField]
-        private LineRenderer trajectoryLine = null;
 		[SerializeField]
 		private string horizontalAxis = "Horizontal";
 		[SerializeField]
@@ -142,15 +144,38 @@ namespace Project
 					Quaternion surfaceRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
 					transform.rotation = Quaternion.Slerp(transform.rotation, surfaceRotation, rotationCorrectionSpeed * Time.deltaTime);
 				}
-				Collider2D frontPoint = Physics2D.OverlapCircle(frontParticles.transform.position, 0.02f, Layer.Water.ToMask());
-				if (frontPoint != null)
-				{
-					frontParticles.EnableEmission();
-				}
-				else
-				{
-					frontParticles.DisableEmission();
-				}
+                if (horizontalInput > 0.1f)
+                {
+    				Collider2D frontPoint = Physics2D.OverlapCircle(frontParticles.transform.position, 0.02f, Layer.Water.ToMask());
+    				if (frontPoint != null)
+    				{
+    					frontParticles.EnableEmission();
+    				}
+    				else
+    				{
+    					frontParticles.DisableEmission();
+    				}
+                }
+                else
+                {
+                    frontParticles.DisableEmission();
+                }
+                if (horizontalInput < -0.1f)
+                {
+                    Collider2D rearPoint = Physics2D.OverlapCircle(rearParticles.transform.position, 0.02f, Layer.Water.ToMask());
+                    if (rearPoint != null)
+                    {
+                        rearParticles.EnableEmission();
+                    }
+                    else
+                    {
+                        rearParticles.DisableEmission();
+                    }
+                }
+                else
+                {
+                    rearParticles.DisableEmission();
+                }
 			}
 			else if (Time.time > timeToRespawn)
 			{
@@ -163,8 +188,8 @@ namespace Project
 			{
 				xPosition += horizontalInput * movementSpeed;
 
-				var leftBorder = Camera.main.ViewportToWorldPoint(new Vector3(0, 0)).x;
-				var rightBorder = Camera.main.ViewportToWorldPoint(new Vector3(1, 0)).x;
+                float leftBorder = isRightBoat ? 0.15f : Camera.main.ViewportToWorldPoint(Vector3.zero).x;
+                float rightBorder = !isRightBoat ? -0.15f : Camera.main.ViewportToWorldPoint(Vector3.right).x;
 				xPosition = Mathf.Clamp(xPosition, leftBorder, rightBorder);
 
 				float targetYPosition = waveManager.GetWaterHeightAtXPos(xPosition) + 0.1f;
@@ -235,7 +260,8 @@ namespace Project
 				localCollider.enabled = false;
 				deathParticles.Emit(32);
 				damageParticles.DisableEmission();
-				frontParticles.DisableEmission();
+                frontParticles.DisableEmission();
+                rearParticles.DisableEmission();
 				timeToRespawn = Time.time + respawnDelay;
 				PrefabPooler.GetFreeFromPool(splashFXPrefab, transform.position, transform.rotation);
 				SoundManager.PlayDeathClip();
@@ -262,7 +288,8 @@ namespace Project
 			damageParticles.DisableEmission();
 			damageParticles.SetEmissionRate(damagedParticleRate);
 			damageParticles.Stop();
-			frontParticles.EnableEmission();
+            frontParticles.EnableEmission();
+            rearParticles.EnableEmission();
 			isInvulnerable = true;
 			timeToVulnerable = invulnerableDuration + Time.time;
 		}

@@ -19,9 +19,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4722248252453474}
+  - component: {fileID: 114034514982240194}
   - component: {fileID: 58706268408428886}
   - component: {fileID: 50613374771433420}
-  - component: {fileID: 114034514982240194}
   m_Layer: 9
   m_Name: Projectile
   m_TagString: Untagged
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: effe83de51356274dab3327226ef951a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 24
+  power: 26.5
   spriteRenderer: {fileID: 212485476321523006}
   circleCollider: {fileID: 58706268408428886}
   localRigidbody: {fileID: 50613374771433420}
@@ -166,7 +166,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1549167195337954}
   serializedVersion: 5
   lengthInSec: 5
-  simulationSpeed: 1
+  speed: 1
   looping: 1
   prewarm: 0
   playOnAwake: 1
