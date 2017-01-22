@@ -71,6 +71,7 @@ namespace Project
 		private Sprite sailNearDeath = null;
 		//Local Fields
 		private WaveManager waveManager = null;
+        private Color sailColor = Color.white;
 		private float damagedParticleRate = 4f;
 		private int healthPoints = 2;
 		private float fireCooldownProgress = 0f;
@@ -90,6 +91,7 @@ namespace Project
 		}
 		private void Start()
 		{
+            sailColor = sailRenderer.color;
 			xPosition = transform.position.x;
 			originalXPosition = xPosition;
 			healthPoints = maxHealthPoints;
@@ -278,7 +280,7 @@ namespace Project
 			xPosition = originalXPosition;
 			healthPoints = maxHealthPoints;
 			sailFaceRenderer.sprite = sailHealthy;
-			sailRenderer.color = Color.white;
+            sailRenderer.color = sailColor;
 			spriteRenderer.color = Color.white;
 			barrelRenderer.color = Color.white;
 			localRigidbody.velocity = Vector2.zero;
