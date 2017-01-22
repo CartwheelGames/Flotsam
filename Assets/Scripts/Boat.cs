@@ -15,8 +15,6 @@ namespace Project
 		[SerializeField]
 		private float rotationCorrectionSpeed = 10f;
 		[SerializeField]
-		private WaveManager waveManager = null;
-		[SerializeField]
 		GameObject projectilePrefab = null;
 		[SerializeField]
 		private Transform barrelEnd = null;
@@ -55,6 +53,7 @@ namespace Project
 		[SerializeField]
 		private Sprite sailNearDeath = null;
 		//Local Fields
+		private WaveManager waveManager = null;
 		private int healthPoints = 2;
 		private float fireCooldownProgress = 0f;
 		private float xPosition = 0f;
@@ -69,6 +68,7 @@ namespace Project
 			{
 				damageParticles.Stop();
 			}
+			waveManager = FindObjectOfType<WaveManager>();
 		}
 		private void Update()
 		{
@@ -109,7 +109,8 @@ namespace Project
 			if (!isDead)
 			{
 				xPosition += horizontalInput * movementSpeed;
-				transform.position = new Vector3(xPosition, waveManager.GetWaterHeightAtXPos(xPosition) + 0.1f);
+				float targetYPosition = waveManager.GetWaterHeightAtXPos(xPosition) + 0.1f;
+				transform.position = new Vector3(xPosition, targetYPosition);
 			}
 		}
 		private void Fire()

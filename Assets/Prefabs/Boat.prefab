@@ -314,7 +314,7 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -0.025, y: -0.015}
+  m_Offset: {x: -0.045, y: -0.0175}
   serializedVersion: 2
   m_Radius: 0.11
 --- !u!114 &114206029380557450
@@ -331,7 +331,6 @@ MonoBehaviour:
   fireCooldownDuration: 0.75
   movementSpeed: 0.01
   rotationCorrectionSpeed: 10
-  waveManager: {fileID: 0}
   projectilePrefab: {fileID: 1534954401899762, guid: e722c5bf30f3a344cb45b2d5ed4f4528,
     type: 2}
   barrelEnd: {fileID: 4812743476745822}
