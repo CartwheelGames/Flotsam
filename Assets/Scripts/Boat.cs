@@ -86,6 +86,7 @@ namespace Project
 		public event Action OnDeathEvent;
 		private void Awake()
 		{
+            GameManager.OnMatchBeginEvent += MakeInvulnerable;
 			GameManager.OnMatchBeginEvent += Enable;
 			GameManager.OnMatchEndEvent += Disable;
 		}
@@ -292,9 +293,13 @@ namespace Project
 			damageParticles.Stop();
             frontParticles.EnableEmission();
             rearParticles.EnableEmission();
-			isInvulnerable = true;
-			timeToVulnerable = invulnerableDuration + Time.time;
+            MakeInvulnerable();
 		}
+        private void MakeInvulnerable()
+        {
+            isInvulnerable = true;
+            timeToVulnerable = invulnerableDuration + Time.time;
+        }
 		private void Enable()
 		{
 			gameObject.SetActive(true);

@@ -18,6 +18,7 @@ namespace Project
         private float currentSpeed = 1f;
         private void Awake()
         {
+            GameManager.OnMatchBeginEvent += OnMatchBegin;
             playerOneBoat.OnDeathEvent += OnPlayerDeath;
             playerTwoBoat.OnDeathEvent += OnPlayerDeath;
         }
@@ -26,6 +27,10 @@ namespace Project
             currentSpeed = targetSpeed;
 			ResetWavePositions();
 		}
+        private void OnMatchBegin()
+        {
+            targetSpeed = Random.Range(0,2) == 0 ? 1 : -1;
+        }
 		private void Update()
 		{
 			float waveWidth = waves[0].spriteRenderer.bounds.extents.x * 2f;

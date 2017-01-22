@@ -9,6 +9,8 @@ namespace Project
         [Range(1,10)]
         private int maxScore = 1;
         [SerializeField]
+        private Text winnerLabel = null;
+        [SerializeField]
         private Sprite noScoreSprite = null;
         [SerializeField]
         private Sprite scoreSprite = null;
@@ -39,18 +41,26 @@ namespace Project
 			RefreshTallies();
 			if (playerTwoScore >= playerTwoTallies.Length)
 			{
-				GameManager.EndMatch();
+                winnerLabel.enabled = true;
+                winnerLabel.text = "Player 2 Wins";
+                Invoke("EndMatch", 3f);
+            }
+        }
+        private void OnPlayerTwoDeath()
+        {
+            playerOneScore++;
+            RefreshTallies();
+            if (playerOneScore >= maxScore)
+            {
+                winnerLabel.enabled = true;
+                winnerLabel.text = "Player 1 Wins";
+                Invoke("EndMatch", 3f);
 			}
 		}
-		private void OnPlayerTwoDeath()
-		{
-			playerOneScore++;
-			RefreshTallies();
-			if (playerOneScore >= maxScore)
-			{
-				GameManager.EndMatch();
-			}
-		}
+        private void EndMatch()
+        {
+            GameManager.EndMatch();
+        }
 		private void RefreshTallies()
 		{
 			for (int i = 0; i < playerOneTallies.Length; i++)
@@ -70,6 +80,7 @@ namespace Project
 		}
 		private void Disable()
 		{
+            winnerLabel.enabled = false;
 			gameObject.SetActive(false);
 			playerOneScore = 0;
 			playerTwoScore = 0;
