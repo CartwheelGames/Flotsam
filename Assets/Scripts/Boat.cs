@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Action = System.Action;
+using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
@@ -77,6 +78,7 @@ namespace Project
 		private float timeToVulnerable = 0f;
 		private bool isInvulnerable = false;
 		private bool isDead = false;
+		public event Action OnDeathEvent;
 		private void Awake()
 		{
 			GameManager.OnMatchBeginEvent += Enable;
@@ -233,6 +235,10 @@ namespace Project
 				frontParticles.DisableEmission();
 				timeToRespawn = Time.time + respawnDelay;
 				PrefabPooler.GetFreeFromPool(splashFXPrefab, transform.position, transform.rotation);
+				if (OnDeathEvent != null)
+				{
+					OnDeathEvent();
+				}
 			}
 		}
 		private void Respawn()
