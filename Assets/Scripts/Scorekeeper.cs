@@ -9,6 +9,8 @@ namespace Project
         [Range(1,10)]
         private int maxScore = 1;
         [SerializeField]
+        private float timeOnWinnerScreen = 5f;
+        [SerializeField]
         private Text winnerLabel = null;
         [SerializeField]
         private Sprite noScoreSprite = null;
@@ -24,7 +26,7 @@ namespace Project
         private Image[] playerTwoTallies = null;
         private int playerOneScore = 0;
         private int playerTwoScore = 0;
-        private bool aPlayerHasWon = false;
+        private bool isWinnerDeclared = false;
 		private void Awake()
 		{
 			GameManager.OnMatchBeginEvent += Enable;
@@ -40,24 +42,28 @@ namespace Project
 		{
 			playerTwoScore++;
 			RefreshTallies();
-            if (!aPlayerHasWon && playerTwoScore >= maxScore)
+            if (!isWinnerDeclared && playerTwoScore >= maxScore)
 			{
                 winnerLabel.enabled = true;
                 winnerLabel.text = "Player 2 Wins";
-                Invoke("EndMatch", 3f);
-                aPlayerHasWon = true;
+                Invoke("EndMatch", timeOnWinnerScreen);
+                isWinnerDeclared = true;
+                playerOneBoat.OnWinnerDeclared();
+                playerTwoBoat.OnWinnerDeclared();
             }
         }
         private void OnPlayerTwoDeath()
         {
             playerOneScore++;
             RefreshTallies();
-            if (!aPlayerHasWon && playerOneScore >= maxScore)
+            if (!isWinnerDeclared && playerOneScore >= maxScore)
             {
                 winnerLabel.enabled = true;
                 winnerLabel.text = "Player 1 Wins";
-                Invoke("EndMatch", 3f);
-                aPlayerHasWon = true;
+                Invoke("EndMatch", timeOnWinnerScreen);
+                isWinnerDeclared = true;
+                playerOneBoat.OnWinnerDeclared();
+                playerTwoBoat.OnWinnerDeclared();
 			}
 		}
         private void EndMatch()
@@ -87,7 +93,7 @@ namespace Project
 			gameObject.SetActive(false);
 			playerOneScore = 0;
 			playerTwoScore = 0;
-            aPlayerHasWon = false;
+            isWinnerDeclared = false;
 			RefreshTallies();
 		}
 	}

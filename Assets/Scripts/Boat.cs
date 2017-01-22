@@ -81,7 +81,8 @@ namespace Project
 		private bool isInFireCooldown = false;
 		private float timeToRespawn = 0f;
 		private float timeToVulnerable = 0f;
-		private bool isInvulnerable = false;
+        private bool isInvulnerable = false;
+		private bool isWinnerDeclared = false;
 		private bool isDead = false;
 		public event Action OnDeathEvent;
 		private void Awake()
@@ -180,7 +181,7 @@ namespace Project
                     rearParticles.DisableEmission();
                 }
 			}
-			else if (Time.time > timeToRespawn)
+            else if (!isWinnerDeclared && Time.time > timeToRespawn)
 			{
 				Respawn();
 			}
@@ -304,6 +305,10 @@ namespace Project
             isInvulnerable = true;
             timeToVulnerable = invulnerableDuration + Time.time;
         }
+        public void OnWinnerDeclared()
+        {
+            isWinnerDeclared = true;
+        }
 		private void Enable()
 		{
             xPosition = originalXPosition;
@@ -312,6 +317,7 @@ namespace Project
 		}
 		private void Disable()
 		{
+            isWinnerDeclared = false;
 			gameObject.SetActive(false);
 		}
 	}
