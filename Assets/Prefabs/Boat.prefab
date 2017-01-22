@@ -390,6 +390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ecfa251cc53d214ea8b4ec8a0301076, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRightBoat: 0
   fireCooldownDuration: 0.75
   movementSpeed: 0.01
   rotationCorrectionSpeed: 8
@@ -418,8 +419,8 @@ MonoBehaviour:
   deathColor: {r: 0.48356402, g: 0.61917365, b: 0.7647059, a: 1}
   deathGravity: 0.075
   sailHealthy: {fileID: 21300000, guid: 19ceebf86d7f843c0ba7bea7631bb8fe, type: 3}
-  sailDamaged: {fileID: 21300000, guid: 19ceebf86d7f843c0ba7bea7631bb8fe, type: 3}
-  sailDead: {fileID: 21300000, guid: 7c57e8105f7634100bd287ad329f8311, type: 3}
+  sailDamaged: {fileID: 21300000, guid: 13a91d27df5c4475ab0a77df60f0e3fd, type: 3}
+  sailDead: {fileID: 21300000, guid: 15252ba3cdc324230a3a6407753e0da5, type: 3}
   sailNearDeath: {fileID: 21300000, guid: 7c57e8105f7634100bd287ad329f8311, type: 3}
 --- !u!198 &198156477940725164
 ParticleSystem:
@@ -11057,7 +11058,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e61b1067203b6452aaf15e2e39e9fca7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.9137255, b: 0.9137255, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!212 &212351195779024540
