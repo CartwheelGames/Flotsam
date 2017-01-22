@@ -66,7 +66,7 @@ namespace Project
 						OnHit();
 					}
 				}
-				else if (col.gameObject.layer == Layer.Projectile.ToIndex())
+				else if (col.gameObject.layer == Layer.Projectile.ToIndex() || col.gameObject.layer == Layer.Environment.ToIndex())
 				{
 					OnHit();
 				}

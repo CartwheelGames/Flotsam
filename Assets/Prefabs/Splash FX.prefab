@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 199117096393383520}
   - component: {fileID: 114663266040834676}
   - component: {fileID: 198995602531077076}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Splash FX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
