@@ -41,7 +41,7 @@ namespace Project
 		}
 		private void Update()
 		{
-			if ((hasHit || !spriteRenderer.isVisible) && particles.particleCount == 0)
+            if (((hasHit || !spriteRenderer.isVisible) && particles.particleCount == 0) || transform.position.y < -10f)
 			{
 				RecycleToPool();
 			}

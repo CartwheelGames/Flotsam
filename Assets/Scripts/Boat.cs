@@ -185,7 +185,11 @@ namespace Project
 				Respawn();
 			}
 		}
-		private void FixedUpdate()
+        private void FixedUpdate()
+        {
+            HandleMovement();
+        }
+		private void HandleMovement()
 		{
 			if (!isDead)
 			{
@@ -302,6 +306,8 @@ namespace Project
         }
 		private void Enable()
 		{
+            xPosition = originalXPosition;
+            HandleMovement();
 			gameObject.SetActive(true);
 		}
 		private void Disable()

@@ -24,6 +24,7 @@ namespace Project
         private Image[] playerTwoTallies = null;
         private int playerOneScore = 0;
         private int playerTwoScore = 0;
+        private bool aPlayerHasWon = false;
 		private void Awake()
 		{
 			GameManager.OnMatchBeginEvent += Enable;
@@ -39,22 +40,24 @@ namespace Project
 		{
 			playerTwoScore++;
 			RefreshTallies();
-			if (playerTwoScore >= playerTwoTallies.Length)
+            if (!aPlayerHasWon && playerTwoScore >= maxScore)
 			{
                 winnerLabel.enabled = true;
                 winnerLabel.text = "Player 2 Wins";
                 Invoke("EndMatch", 3f);
+                aPlayerHasWon = true;
             }
         }
         private void OnPlayerTwoDeath()
         {
             playerOneScore++;
             RefreshTallies();
-            if (playerOneScore >= maxScore)
+            if (!aPlayerHasWon && playerOneScore >= maxScore)
             {
                 winnerLabel.enabled = true;
                 winnerLabel.text = "Player 1 Wins";
                 Invoke("EndMatch", 3f);
+                aPlayerHasWon = true;
 			}
 		}
         private void EndMatch()
@@ -84,6 +87,7 @@ namespace Project
 			gameObject.SetActive(false);
 			playerOneScore = 0;
 			playerTwoScore = 0;
+            aPlayerHasWon = false;
 			RefreshTallies();
 		}
 	}
