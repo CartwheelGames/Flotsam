@@ -15,6 +15,8 @@ namespace Project
 		private Rigidbody2D localRigidbody = null;
 		[SerializeField]
 		private ParticleSystem particles = null;
+		[SerializeField]
+		private Color underwaterColor = Color.gray;
 		private const float armingTime = 0.1f;
 		private float timeToArm = 0f;
 		private float originalGravity;
@@ -73,7 +75,7 @@ namespace Project
 			localRigidbody.gravityScale = 0.075f;
 			circleCollider.enabled = false;
 			particles.DisableEmission();
-			spriteRenderer.color = Color.gray;
+			spriteRenderer.color = underwaterColor;
 			hasEnteredWater = true;
 		}
 		private void OnHit()

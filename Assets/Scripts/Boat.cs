@@ -25,6 +25,10 @@ namespace Project
 		[SerializeField]
 		private SpriteRenderer barrelRenderer = null;
 		[SerializeField]
+		private SpriteRenderer sailFaceRenderer = null;
+		[SerializeField]
+		private SpriteRenderer sailRenderer = null;
+		[SerializeField]
 		private ParticleSystem damageParticles = null;
 		[SerializeField]
 		private ParticleSystem frontParticles = null;
@@ -42,6 +46,14 @@ namespace Project
 		private Color deathColor = Color.gray;
 		[SerializeField]
 		private float deathGravity = 0.075f;
+		[SerializeField]
+		private Sprite sailHealthy = null;
+		[SerializeField]
+		private Sprite sailDamaged = null;
+		[SerializeField]
+		private Sprite sailDead = null;
+		[SerializeField]
+		private Sprite sailNearDeath = null;
 		//Local Fields
 		private int healthPoints = 2;
 		private float fireCooldownProgress = 0f;
@@ -115,6 +127,14 @@ namespace Project
 			}
 			else
 			{
+				if (healthPoints == 1)
+				{
+					sailFaceRenderer.sprite = sailNearDeath;
+				}
+				else
+				{
+					sailFaceRenderer.sprite = sailDamaged;
+				}
 				if (!damageParticles.isPlaying)
 				{
 					damageParticles.Play();
@@ -127,6 +147,8 @@ namespace Project
 			if (!isDead)
 			{
 				isDead = true;
+				sailFaceRenderer.sprite = sailDead;
+				sailRenderer.color = deathColor;
 				spriteRenderer.color = deathColor;
 				barrelRenderer.color = deathColor;
 				localRigidbody.bodyType = RigidbodyType2D.Dynamic;
