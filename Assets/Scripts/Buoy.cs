@@ -17,7 +17,7 @@ namespace Project
 		}
 		private void FixedUpdate()
 		{
-			float targetYPosition = waveManager.GetWaterHeightAtXPos(0) + 0.1f;
+			float targetYPosition = waveManager.GetWaterHeightAtXPos(0);
 			transform.position = new Vector3(0, targetYPosition);
 		}
 		private void Enable()

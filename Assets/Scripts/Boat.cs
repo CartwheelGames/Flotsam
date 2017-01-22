@@ -175,6 +175,7 @@ namespace Project
 			PrefabPooler.GetFreeFromPool(projectilePrefab, barrelEnd.position, barrelEnd.rotation);
 			fireCooldownProgress = 0f;
 			isInFireCooldown = true;
+			SoundManager.PlayFireClip();
 		}
 		public void OnHit()
 		{
@@ -235,6 +236,7 @@ namespace Project
 				frontParticles.DisableEmission();
 				timeToRespawn = Time.time + respawnDelay;
 				PrefabPooler.GetFreeFromPool(splashFXPrefab, transform.position, transform.rotation);
+				SoundManager.PlayDeathClip();
 				if (OnDeathEvent != null)
 				{
 					OnDeathEvent();

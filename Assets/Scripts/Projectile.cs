@@ -81,6 +81,7 @@ namespace Project
 			hasEnteredWater = true;
 			Vector3 splashPosition = new Vector3(transform.position.x, transform.position.y, -0.8f);
 			PrefabPooler.GetFreeFromPool(splashPrefab, splashPosition, transform.rotation);
+			SoundManager.PlaySplashClip();
 		}
 		private void OnHit()
 		{
@@ -90,6 +91,7 @@ namespace Project
 			hasHit = true;
 			Vector3 explosionPosition = new Vector3(transform.position.x, transform.position.y, -0.8f);
 			PrefabPooler.GetFreeFromPool(explosionPrefab, explosionPosition, transform.rotation);
+			SoundManager.PlayHitClip();
 		}
 		private void CleanUp()
 		{
