@@ -532,7 +532,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 12, y: 12}
+  m_AnchoredPosition: {x: 12, y: 48}
   m_SizeDelta: {x: 344, y: 142}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &292357054
@@ -2452,7 +2452,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -12, y: 12}
+  m_AnchoredPosition: {x: -12, y: 48}
   m_SizeDelta: {x: 344, y: 142}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1551206902
@@ -2510,7 +2510,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 12, y: 137}
+  m_AnchoredPosition: {x: 12, y: 5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1585915306
@@ -2674,7 +2674,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -12, y: 137}
+  m_AnchoredPosition: {x: -12, y: 5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1655673587
@@ -3605,6 +3605,7 @@ MonoBehaviour:
   deathClip: {fileID: 8300000, guid: 10affea2d0bf54e02872bf4db7195666, type: 3}
   fireClip: {fileID: 8300000, guid: f377f0a0d57b9459dbdc13ab84b9cfb7, type: 3}
   hitClip: {fileID: 8300000, guid: 10b12da5c64ae4b46a8f24f667c6ed38, type: 3}
+  splashClip: {fileID: 8300000, guid: 4d30243c2cf111a47b1f127d12306c32, type: 3}
 --- !u!4 &2075534655
 Transform:
   m_ObjectHideFlags: 0
