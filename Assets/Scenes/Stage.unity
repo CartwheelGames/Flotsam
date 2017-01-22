@@ -131,6 +131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af60d67657e9597408773585f760005e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxScore: 10
+  noScoreSprite: {fileID: 21300000, guid: 93e779f15cee049a78551fabf542bad3, type: 3}
+  scoreSprite: {fileID: 21300000, guid: 7b8f8050f2bd34240b55594058322df3, type: 3}
   playerOneBoat: {fileID: 1221965068}
   playerTwoBoat: {fileID: 1032999531}
   playerOneTallies:
@@ -541,11 +544,11 @@ RectTransform:
   m_Father: {fileID: 48605937}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 12, y: 48}
-  m_SizeDelta: {x: 344, y: 142}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 12, y: -12}
+  m_SizeDelta: {x: 201, y: 90}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &292357054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -562,11 +565,11 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 6
-  m_StartCorner: 2
+  m_ChildAlignment: 0
+  m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 60, y: 60}
-  m_Spacing: {x: 0, y: 0}
+  m_CellSize: {x: 32, y: 32}
+  m_Spacing: {x: 4, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1 &361446841
@@ -2744,11 +2747,11 @@ RectTransform:
   m_Father: {fileID: 48605937}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -12, y: 48}
-  m_SizeDelta: {x: 344, y: 142}
-  m_Pivot: {x: 1, y: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -12, y: -12}
+  m_SizeDelta: {x: 198, y: 90}
+  m_Pivot: {x: 1, y: 1}
 --- !u!114 &1551206902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2765,11 +2768,11 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 8
-  m_StartCorner: 3
+  m_ChildAlignment: 2
+  m_StartCorner: 1
   m_StartAxis: 0
-  m_CellSize: {x: 60, y: 60}
-  m_Spacing: {x: 0, y: 0}
+  m_CellSize: {x: 32, y: 32}
+  m_Spacing: {x: 4, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1 &1585915304

@@ -5,16 +5,23 @@ namespace Project
 {
 	public class Scorekeeper : MonoBehaviour
 	{
-		[SerializeField]
-		private Boat playerOneBoat = null;
-		[SerializeField]
-		private Boat playerTwoBoat = null;
-		[SerializeField]
-		private Image[] playerOneTallies = null;
-		[SerializeField]
-		private Image[] playerTwoTallies = null;
-		private int playerOneScore = 0;
-		private int playerTwoScore = 0;
+        [SerializeField]
+        [Range(1,10)]
+        private int maxScore = 1;
+        [SerializeField]
+        private Sprite noScoreSprite = null;
+        [SerializeField]
+        private Sprite scoreSprite = null;
+        [SerializeField]
+        private Boat playerOneBoat = null;
+        [SerializeField]
+        private Boat playerTwoBoat = null;
+        [SerializeField]
+        private Image[] playerOneTallies = null;
+        [SerializeField]
+        private Image[] playerTwoTallies = null;
+        private int playerOneScore = 0;
+        private int playerTwoScore = 0;
 		private void Awake()
 		{
 			GameManager.OnMatchBeginEvent += Enable;
@@ -39,7 +46,7 @@ namespace Project
 		{
 			playerOneScore++;
 			RefreshTallies();
-			if (playerOneScore >= playerOneTallies.Length)
+			if (playerOneScore >= maxScore)
 			{
 				GameManager.EndMatch();
 			}
@@ -48,11 +55,13 @@ namespace Project
 		{
 			for (int i = 0; i < playerOneTallies.Length; i++)
 			{
-				playerOneTallies[i].enabled = i < playerOneScore;
-			}
-			for (int i = 0; i < playerTwoTallies.Length; i++)
-			{
-				playerTwoTallies[i].enabled = i < playerTwoScore;
+                playerOneTallies[i].enabled = i < maxScore;
+                playerOneTallies[i].sprite = i < playerOneScore ? scoreSprite : noScoreSprite;
+            }
+            for (int i = 0; i < playerTwoTallies.Length; i++)
+            {
+                playerTwoTallies[i].enabled = i < maxScore;
+                playerTwoTallies[i].sprite = i < playerTwoScore ? scoreSprite : noScoreSprite;
 			}
 		}
 		private void Enable()
