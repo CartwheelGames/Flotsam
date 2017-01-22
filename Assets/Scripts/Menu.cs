@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 namespace Project
 {
 	public class Menu : MonoBehaviour
@@ -13,16 +14,21 @@ namespace Project
         private Text soundLabel = null;
         [SerializeField]
         private Button quitButton = null;
+		private void Awake()
+		{
+			GameManager.OnMatchBeginEvent += Disable;
+			GameManager.OnMatchEndEvent += Enable;
+		}
         private void Start()
         {
-            startButton.onClick.AddListener(StartGame);
+            startButton.onClick.AddListener(BeginGame);
             soundButton.onClick.AddListener(ChangeSound);
             quitButton.onClick.AddListener(Application.Quit);
             RefreshSoundLabel();
         }
-        private void StartGame()
+        private void BeginGame()
         {
-            SceneManager.LoadScene(1);
+			GameManager.BeginMatch();
         }
         private void ChangeSound()
         {
@@ -33,5 +39,13 @@ namespace Project
         {
             soundLabel.text = AudioListener.pause ? "sound Off" : "sound On";
         }
+		private void Enable()
+		{
+			gameObject.SetActive(true);
+		}
+		private void Disable()
+		{
+			gameObject.SetActive(false);
+		}
 	}
 }

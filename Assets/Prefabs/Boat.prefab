@@ -383,7 +383,7 @@ MonoBehaviour:
   respawnDelay: 3
   invulnerableDuration: 2
   invulnerableFlashRate: 6
-  deathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  deathColor: {r: 0.48356402, g: 0.61917365, b: 0.7647059, a: 1}
   deathGravity: 0.075
   sailHealthy: {fileID: 21300000, guid: 19ceebf86d7f843c0ba7bea7631bb8fe, type: 3}
   sailDamaged: {fileID: 21300000, guid: 19ceebf86d7f843c0ba7bea7631bb8fe, type: 3}

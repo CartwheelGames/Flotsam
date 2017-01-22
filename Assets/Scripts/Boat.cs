@@ -77,6 +77,11 @@ namespace Project
 		private float timeToVulnerable = 0f;
 		private bool isInvulnerable = false;
 		private bool isDead = false;
+		private void Awake()
+		{
+			GameManager.OnMatchBeginEvent += Enable;
+			GameManager.OnMatchEndEvent += Disable;
+		}
 		private void Start()
 		{
 			xPosition = transform.position.x;
@@ -89,6 +94,7 @@ namespace Project
 			damagedParticleRate = damageParticles.GetEmissionRate();
 			waveManager = FindObjectOfType<WaveManager>();
 			localRigidbody.gravityScale = deathGravity;
+			Disable();
 		}
 		private void Update()
 		{
@@ -249,6 +255,14 @@ namespace Project
 			frontParticles.EnableEmission();
 			isInvulnerable = true;
 			timeToVulnerable = invulnerableDuration + Time.time;
+		}
+		private void Enable()
+		{
+			gameObject.SetActive(true);
+		}
+		private void Disable()
+		{
+			gameObject.SetActive(false);
 		}
 	}
 }
