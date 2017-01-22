@@ -17,6 +17,8 @@ namespace Project
 		private ParticleSystem particles = null;
 		[SerializeField]
 		private Color underwaterColor = Color.gray;
+		[SerializeField]
+		private GameObject explosionPrefab = null;
 		private const float armingTime = 0.1f;
 		private float timeToArm = 0f;
 		private float originalGravity;
@@ -70,8 +72,6 @@ namespace Project
 		}
 		private void OnEnterWater()
 		{
-			//localRigidbody.velocity *= 0.1f;
-			//localRigidbody.angularVelocity *= 0.1f;
 			localRigidbody.gravityScale = 0.075f;
 			circleCollider.enabled = false;
 			particles.DisableEmission();
@@ -84,6 +84,8 @@ namespace Project
 			particles.DisableEmission();
 			spriteRenderer.enabled = false;
 			hasHit = true;
+			Vector3 explosionPosition = new Vector3(transform.position.x, transform.position.y, -0.8f);
+			PrefabPooler.GetFreeFromPool(explosionPrefab, explosionPosition, transform.rotation);
 		}
 		private void CleanUp()
 		{
