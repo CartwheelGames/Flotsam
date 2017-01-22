@@ -20,8 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4106037903386064}
   - component: {fileID: 114207760124101854}
-  - component: {fileID: 61819942141633396}
   - component: {fileID: 50098166065359042}
+  - component: {fileID: 58576927711293188}
+  - component: {fileID: 58679338866693526}
+  - component: {fileID: 61490035514343556}
   m_Layer: 10
   m_Name: Buoy
   m_TagString: Untagged
@@ -92,7 +94,35 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61819942141633396
+--- !u!58 &58576927711293188
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1097236499781488}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0.015}
+  serializedVersion: 2
+  m_Radius: 0.0825
+--- !u!58 &58679338866693526
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1097236499781488}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0.215}
+  serializedVersion: 2
+  m_Radius: 0.034
+--- !u!61 &61490035514343556
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -103,9 +133,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0.06}
+  m_Offset: {x: 0, y: 0.008}
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.38}
+  m_Size: {x: 0.04, y: 0.35}
 --- !u!114 &114207760124101854
 MonoBehaviour:
   m_ObjectHideFlags: 1
