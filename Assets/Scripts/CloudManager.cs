@@ -16,7 +16,7 @@ namespace Project
 		{
 			foreach (SpriteRenderer cloud in clouds)
 			{
-				if (cloud.transform.position.x < -minStartX && !cloud.isVisible)
+				if (cloud.transform.position.x < -1f && !cloud.isVisible)
 				{
 					cloud.transform.position = new Vector3(Random.Range(minStartX, maxStartX), cloud.transform.position.y, 0f);
 				}

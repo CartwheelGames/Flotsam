@@ -2872,8 +2872,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minStartX: 3
-  maxStartX: 4
-  cloudSpeed: 1
+  maxStartX: 6
+  cloudSpeed: 0.1
   clouds:
   - {fileID: 375942282}
   - {fileID: 776050573}
@@ -4104,11 +4104,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4221230881947418, guid: 090d5c9bf7926a943bb0516b8501f5b8, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.817
+      value: 1.98
       objectReference: {fileID: 0}
     - target: {fileID: 4221230881947418, guid: 090d5c9bf7926a943bb0516b8501f5b8, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.2
+      value: 1.1575
       objectReference: {fileID: 0}
     - target: {fileID: 212279765117844428, guid: 090d5c9bf7926a943bb0516b8501f5b8,
         type: 2}
