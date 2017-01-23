@@ -213,7 +213,7 @@ Transform:
   m_GameObject: {fileID: 1894113562046010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.0478, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 4365644104578326}
   m_RootOrder: 0
@@ -225,7 +225,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1277422046246200}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0614, y: -0.121, z: -0.025}
+  m_LocalPosition: {x: 0.1497, y: -0.2001, z: -0.075}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4365644104578326}
@@ -260,7 +260,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1236086084705474}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0564, y: -0.12099999, z: -0.025}
+  m_LocalPosition: {x: -0.1244, y: -0.2025, z: -0.075}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4365644104578326}
@@ -273,7 +273,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1398036962703744}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0051, y: 0.0279, z: -0.1255}
+  m_LocalPosition: {x: 0.0051, y: 0.0279, z: 0.062}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4365644104578326}
@@ -286,7 +286,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1471709393908940}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0051, y: -0.0433, z: 0.1255}
+  m_LocalPosition: {x: 0.0051, y: -0.0433, z: 0.313}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4365644104578326}
@@ -299,8 +299,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1504253855835638}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0799, y: 0.0358, z: 0.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.055, y: 0.095, z: 0.1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4047656179308468}
   m_Father: {fileID: 4365644104578326}
@@ -313,8 +313,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1883175764874000}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0066, y: -0.0324, z: -0.0165}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.1288, y: -0.0755, z: 0.004}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 4365644104578326}
   m_RootOrder: 4
@@ -326,8 +326,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1767404889931144}
   m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
-  m_LocalPosition: {x: 0.0263, y: -0.0032, z: -0.014}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.1422, y: -0.044, z: 0.025}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 4365644104578326}
   m_RootOrder: 2
@@ -339,8 +339,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1062871904544170}
   m_LocalRotation: {x: -0, y: -0, z: 0.38268343, w: 0.92387956}
-  m_LocalPosition: {x: 0.0659, y: 0.0327, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.1818, y: -0.0081, z: 0.025}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 4365644104578326}
   m_RootOrder: 3
@@ -376,9 +376,9 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: -0.0175}
+  m_Offset: {x: 0.06, y: -0.02}
   serializedVersion: 2
-  m_Radius: 0.11
+  m_Radius: 0.19
 --- !u!114 &114206029380557450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -418,10 +418,10 @@ MonoBehaviour:
   invulnerableFlashRate: 6
   deathColor: {r: 0.48356402, g: 0.61917365, b: 0.7647059, a: 1}
   deathGravity: 0.075
-  sailHealthy: {fileID: 21300000, guid: 19ceebf86d7f843c0ba7bea7631bb8fe, type: 3}
-  sailDamaged: {fileID: 21300000, guid: 13a91d27df5c4475ab0a77df60f0e3fd, type: 3}
-  sailDead: {fileID: 21300000, guid: 15252ba3cdc324230a3a6407753e0da5, type: 3}
-  sailNearDeath: {fileID: 21300000, guid: 7c57e8105f7634100bd287ad329f8311, type: 3}
+  sailHealthy: {fileID: 21300000, guid: 44ea3ecb93ce14bbcaf4c06de7ebd5d6, type: 3}
+  sailDamaged: {fileID: 21300000, guid: fc542d8039bf24fa3ab942f1ae489234, type: 3}
+  sailDead: {fileID: 21300000, guid: 69e295eec90c54e7e98100cb7cee9312, type: 3}
+  sailNearDeath: {fileID: 21300000, guid: 94a8ce255abb84b3bb1a92b59ec2eb9f, type: 3}
 --- !u!198 &198156477940725164
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -477,7 +477,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -806230397
+  randomSeed: -1338474828
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -653,7 +653,7 @@ ParticleSystem:
       maxColor: {r: 0, g: 0.48235294, b: 1, a: 1}
       minMaxState: 0
     startSize:
-      scalar: 0.025
+      scalar: 0.05
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -3254,7 +3254,7 @@ ParticleSystem:
       maxColor: {r: 0.043137256, g: 0.043137256, b: 0.043137256, a: 1}
       minMaxState: 0
     startSize:
-      scalar: 0.03
+      scalar: 0.06
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5679,7 +5679,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1533136195
+  randomSeed: 188564027
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -5855,7 +5855,7 @@ ParticleSystem:
       maxColor: {r: 0.7490196, g: 0.7490196, b: 0.7490196, a: 1}
       minMaxState: 0
     startSize:
-      scalar: 0.03
+      scalar: 0.06
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -8280,7 +8280,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -720179012
+  randomSeed: 588144879
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -8456,7 +8456,7 @@ ParticleSystem:
       maxColor: {r: 0, g: 0.48235294, b: 1, a: 1}
       minMaxState: 0
     startSize:
-      scalar: 0.025
+      scalar: 0.05
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -11057,8 +11057,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e61b1067203b6452aaf15e2e39e9fca7, type: 3}
-  m_Color: {r: 1, g: 0.9137255, b: 0.9137255, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 51bddad36dce348b29af2d459e4406d8, type: 3}
+  m_Color: {r: 0.34412846, g: 0.6985294, b: 0.34657258, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!212 &212351195779024540
@@ -11092,7 +11092,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 19ceebf86d7f843c0ba7bea7631bb8fe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 44ea3ecb93ce14bbcaf4c06de7ebd5d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -11127,7 +11127,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6c55333d1e71142ad86c41e3e2f9c2e8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 66a9a63e68bba477d81c4aab09852392, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -11162,7 +11162,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dde1fc481819e4feea26d6c8ba528bb8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6a2c7956a18d04ceca056f316cb83692, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -11197,7 +11197,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4dc526944d2584ffcaa0024a072ed3c3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: da680c2f601e747798d51dff1a588d96, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

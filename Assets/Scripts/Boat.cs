@@ -150,15 +150,7 @@ namespace Project
 				}
                 if (horizontalInput > 0.1f)
                 {
-    				Collider2D frontPoint = Physics2D.OverlapCircle(frontParticles.transform.position, 0.02f, Layer.Water.ToMask());
-    				if (frontPoint != null)
-    				{
-    					frontParticles.EnableEmission();
-    				}
-    				else
-    				{
-    					frontParticles.DisableEmission();
-    				}
+					frontParticles.EnableEmission();
                 }
                 else
                 {
@@ -166,15 +158,7 @@ namespace Project
                 }
                 if (horizontalInput < -0.1f)
                 {
-                    Collider2D rearPoint = Physics2D.OverlapCircle(rearParticles.transform.position, 0.02f, Layer.Water.ToMask());
-                    if (rearPoint != null)
-                    {
-                        rearParticles.EnableEmission();
-                    }
-                    else
-                    {
-                        rearParticles.DisableEmission();
-                    }
+                    rearParticles.EnableEmission();
                 }
                 else
                 {
@@ -304,6 +288,8 @@ namespace Project
         {
             isInvulnerable = true;
             timeToVulnerable = invulnerableDuration + Time.time;
+			healthPoints = maxHealthPoints;
+			sailFaceRenderer.sprite = sailHealthy;
         }
         public void OnWinnerDeclared()
         {
